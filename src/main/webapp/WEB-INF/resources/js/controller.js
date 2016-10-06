@@ -5,7 +5,7 @@ var cartApp = angular.module("cartApp", []);
 
 cartApp.controller("cartCtrl", function ($scope, $http) {
     $scope.refreshCart = function (cartId){
-        $http.get('/rest/cart/'+$scope.cartId).success(function ( data) {
+        $http.get('/rest/cart/'+$scope.cartId).success(function (data) {
             $scope.cart = data;
         });
     };
@@ -15,7 +15,7 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
     };
     
     $scope.initCartId = function (cartId) {
-        $scope.cart = cartId;
+        $scope.cartId = cartId;
         $scope.refreshCart(cartId);
     };
     
