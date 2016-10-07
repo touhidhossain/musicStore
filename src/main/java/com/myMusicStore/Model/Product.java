@@ -5,12 +5,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 
 /**
  * Created by TOUHID on 7/9/2016.
  */
 @Entity
-public class Product {
+public class Product implements Serializable{
+
+    private static final long serialVersionUID = -7196108944678654218L;
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long productID;
