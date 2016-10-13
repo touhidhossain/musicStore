@@ -10,7 +10,7 @@
             <p class="lead">Edit product now!</p>
         </div>
         <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post" commandName="product" enctype="multipart/form-data">
-            <form:hidden path="productID" value="${product.productID}"/>
+            <form:hidden path="productID" value="${product.productId}"/>
             <div class="form-group">
                 <label for="name">Name</label><form:errors path="productName" cssStyle="color: red;" />
                 <form:input path="productName" class="form-control" id="name" value="${product.productName}"/>

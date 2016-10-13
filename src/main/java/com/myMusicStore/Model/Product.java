@@ -1,11 +1,13 @@
 package com.myMusicStore.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by TOUHID on 7/9/2016.
@@ -16,7 +18,7 @@ public class Product implements Serializable{
     private static final long serialVersionUID = -7196108944678654218L;
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long productID;
+    private long productId;
 
     @NotEmpty (message = "Product name must not be null.")
     private String productName;
@@ -34,13 +36,18 @@ public class Product implements Serializable{
     @Transient
     private MultipartFile productImage;
 
-    public long getProductID() {
-        return productID;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
+
+    public long getProductId() {
+        return productId;
     }
 
-    public void setProductID(long productID) {
-        this.productID = productID;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
+
     public String getProductName() {
         return productName;
     }
@@ -111,5 +118,13 @@ public class Product implements Serializable{
 
     public void setProductImage(MultipartFile productImage) {
         this.productImage = productImage;
+    }
+
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
     }
 }

@@ -22,36 +22,43 @@ public class ProductDAOimpliment implements ProductDAO {
   private SessionFactory sessionFactory;
 
 
+  @Override
+  public List<Product> getProductList() {
+    Session session = sessionFactory.getCurrentSession();
+    Query query = session.createQuery("FROM Product");
+    List<Product> productList = query.list();
+    session.flush();
+
+    return productList;
+  }
+
+  @Override
+  public Product getProductById(long id) {
+    Session session = sessionFactory.getCurrentSession();
+    Product product = (Product) session.get(Product.class, id);
+    session.flush();
+
+    return product;
+  }
+
+  @Override
   public void addProduct(Product product) {
     Session session = sessionFactory.getCurrentSession();
     session.saveOrUpdate(product);
     session.flush();
   }
 
+  @Override
   public void editProduct(Product product) {
     Session session = sessionFactory.getCurrentSession();
     session.saveOrUpdate(product);
     session.flush();
   }
 
-  public Product getProductByID(long id) {
+  @Override
+  public void deleteProduct(Product product) {
     Session session = sessionFactory.getCurrentSession();
-    Product product = (Product) session.get(Product.class, id);
-    session.flush();
-    return product;
-  }
-
-  public List<Product> getAllProduct() {
-    Session session = sessionFactory.getCurrentSession();
-    Query query = session.createQuery("from Product");
-    List<Product> products = query.list();
-    session.flush();
-    return  products;
-  }
-
-  public void deleteProduct(long id) {
-    Session session = sessionFactory.getCurrentSession();
-    session.delete(getProductByID(id));
+    session.delete(product);
     session.flush();
   }
 }

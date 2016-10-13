@@ -10,9 +10,9 @@ import java.util.List;
  * Created by TOUHID on 7/9/2016.
  */
 public interface ProductDAO {
+    List<Product> getProductList();
+    Product getProductById(long id);
     void addProduct(Product product);
     void editProduct(Product product);
-    Product getProductByID(long id);
-    List<Product> getAllProduct();
-    void deleteProduct(long id);
+    void deleteProduct(Product product);
 }

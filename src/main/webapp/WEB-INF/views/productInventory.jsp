@@ -27,7 +27,7 @@
             </thead>
             <c:forEach items="${products}" var="product">
                 <tr>
-                    <td><img src="/resources/images/${product.productID}.png" alt="image" style="width: 100%" /></td>
+                    <td><img src="/resources/images/${product.productId}.png" alt="image" style="width: 100%" /></td>
                     <td class="active">${product.productName}</td>
                     <td class="success">${product.productCategory}</td>
                     <td class="warning">${product.productDescription}</td>
@@ -36,11 +36,11 @@
                     <td class="active">${product.productStatus}</td>
                     <td class="success">${product.unitInStock}</td>
                     <td class="warning">${product.productManufacture}</td>
-                    <td class="active"><a href="<spring:url value="/productList/viewProduct/${product.productID}"/>"
+                    <td class="active"><a href="<spring:url value="/productList/viewProduct/${product.productId}"/>"
                     ><span class="glyphicon glyphicon-info-sign"></span></a>
-                    <a href="<spring:url value="/admin/productInventory/editProduct/${product.productID}"/>"
+                    <a href="<spring:url value="/admin/productInventory/editProduct/${product.productId}"/>"
                     ><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}"/>"
+                    <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productId}"/>"
                     ><span class="glyphicon glyphicon-remove"></span></a></td>
 
                 </tr>
