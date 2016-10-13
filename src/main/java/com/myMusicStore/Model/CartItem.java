@@ -2,15 +2,13 @@ package com.myMusicStore.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by root on 10/3/16.
  */
+@Entity
 public class CartItem implements Serializable{
 
     private static final long serialVersionUID = -3332391030148390575L;

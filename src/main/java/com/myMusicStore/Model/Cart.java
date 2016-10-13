@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Created by root on 10/3/16.
  */
+@Entity
 public class Cart implements Serializable{
 
     private static final long serialVersionUID = -5651661178782774935L;
