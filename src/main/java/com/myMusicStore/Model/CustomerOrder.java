@@ -7,9 +7,9 @@ import java.io.Serializable;
  * Created by root on 10/11/16.
  */
 @Entity
-public class Order implements Serializable{
+public class CustomerOrder implements Serializable{
 
-    private static final long serialVersionUID = -7509448133934287812L;
+    private static final long serialVersionUID = 6776843240300116325L;
 
     @Id
     @GeneratedValue
