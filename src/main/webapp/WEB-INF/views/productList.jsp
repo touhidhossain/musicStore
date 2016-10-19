@@ -36,7 +36,7 @@
                     <td class="active">${product.productStatus}</td>
                     <td class="success">${product.unitInStock}</td>
                     <td class="warning">${product.productManufacture}</td>
-                    <td class="active"><a href="<spring:url value="/productList/viewProduct/${product.productId}"/>"
+                    <td class="active"><a href="<spring:url value="/product/viewProduct/${product.productId}"/>"
                     ><span class="glyphicon glyphicon-info-sign"></span></a></td>
 
                 </tr>

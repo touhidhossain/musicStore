@@ -5,8 +5,10 @@ import com.myMusicStore.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,5 +26,12 @@ public class ProductController {
         List<Product> products = productService.getProductList();
         model.addAttribute("products", products);
         return "productList";
+    }
+
+    @RequestMapping("/viewProduct/{id}")
+    public String getProducts(Model model, @PathVariable("id") long id) throws IOException {
+        Product product = productService.getProductById(id);
+        model.addAttribute("product", product);
+        return "viewProduct";
     }
 }

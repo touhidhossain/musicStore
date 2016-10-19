@@ -16,7 +16,7 @@ public class Customer implements Serializable{
 
     @Id
     @GeneratedValue
-    private int customerId;
+    private long customerId;
 
     @NotEmpty(message = "The Customer name must not be null.")
     private String customerName;
@@ -48,11 +48,11 @@ public class Customer implements Serializable{
     @JsonIgnore
     private Cart cart;
 
-    public int getCustomerId() {
+    public long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(long customerId) {
         this.customerId = customerId;
     }
 

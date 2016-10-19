@@ -16,6 +16,7 @@
             <h1>Administator Page</h1>
             <p class="lead">This is administator page!</p>
         </div>
+        <h2>Welcome Admin | <a href="<c:url value="#"/>">Logout</a> </h2>
         <h3>
             <a href="<c:url value="/admin/productInventory"/>">Product Inventory</a>
         </h3>

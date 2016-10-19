@@ -34,7 +34,7 @@
                     <br>
 
                     <c:set var="role" scope="page" value="${param.role}"></c:set>
-                    <c:set var="url" scope="page" value="/productList"></c:set>
+                    <c:set var="url" scope="page" value="/product/productList"></c:set>
                     <c:if test="${role='admin'}">
                         <c:set var="url" scope="page" value="/admin/productInventory"></c:set>
                     </c:if>

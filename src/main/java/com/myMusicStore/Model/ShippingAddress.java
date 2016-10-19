@@ -17,7 +17,7 @@ public class ShippingAddress implements Serializable{
 
     @Id
     @GeneratedValue
-    private int shippingAddressId;
+    private long shippingAddressId;
 
     private String streetName;
     private String apartmentNumber;
@@ -29,11 +29,11 @@ public class ShippingAddress implements Serializable{
     @OneToOne
     private Customer customer;
 
-    public int getShippingAddressId() {
+    public long getShippingAddressId() {
         return shippingAddressId;
     }
 
-    public void setShippingAddressId(int shippingAddressId) {
+    public void setShippingAddressId(long shippingAddressId) {
         this.shippingAddressId = shippingAddressId;
     }
 

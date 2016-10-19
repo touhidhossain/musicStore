@@ -16,7 +16,7 @@ public class BillingAddress implements Serializable{
 
     @Id
     @GeneratedValue
-    private int billingAddressId;
+    private long billingAddressId;
 
     private String streetName;
     private String apartmentNumber;
@@ -28,11 +28,11 @@ public class BillingAddress implements Serializable{
     @OneToOne
     private Customer customer;
 
-    public int getBillingAddressId() {
+    public long getBillingAddressId() {
         return billingAddressId;
     }
 
-    public void setBillingAddressId(int billingAddressId) {
+    public void setBillingAddressId(long billingAddressId) {
         this.billingAddressId = billingAddressId;
     }
 
