@@ -28,6 +28,11 @@ public class CustomerServiceImpliment implements CustomerService{
     }
 
     @Override
+    public Customer getCustomerByUsername(String username) {
+        return customerDAO.getCustomerByUsername(username);
+    }
+
+    @Override
     public void addCustomer(Customer customer) {
         customerDAO.addCustomer(customer);
     }

@@ -11,17 +11,17 @@ import javax.persistence.Id;
 public class Users {
     @Id
     @GeneratedValue
-    private int userId;
+    private long userId;
     private String username;
     private String password;
     private boolean enabled;
-    private int customerId;
+    private long customerId;
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -49,11 +49,11 @@ public class Users {
         this.enabled = enabled;
     }
 
-    public int getCustomerId() {
+    public long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(long customerId) {
         this.customerId = customerId;
     }
 }

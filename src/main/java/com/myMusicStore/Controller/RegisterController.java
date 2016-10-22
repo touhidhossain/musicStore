@@ -44,6 +44,7 @@ public class RegisterController {
         if(result.hasErrors()){
             return "registerCustomer";
         }
+        customer.setEnable(true);
         customerService.addCustomer(customer);
 
         return "registerCustomerSuccess";

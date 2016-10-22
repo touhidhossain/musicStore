@@ -43,33 +43,33 @@
 
             <div class="form-group">
                 <label for="billingStreetName">Street Name</label><form:errors path="billingAddress.streetName" cssStyle="color: red;" />
-                <form:password path="billingAddress.streetName" class="form-control" id="billingStreetName" placeholder="Street Name"/>
+                <form:input path="billingAddress.streetName" class="form-control" id="billingStreetName" placeholder="Street Name"/>
             </div>
 
 
             <div class="form-group">
                 <label for="billingApartmentNumber">Appartment Number</label><form:errors path="billingAddress.apartmentNumber" cssStyle="color: red;" />
-                <form:password path="billingAddress.apartmentNumber" class="form-control" id="billingApartmentNumber" placeholder="Apartment Number"/>
+                <form:input path="billingAddress.apartmentNumber" class="form-control" id="billingApartmentNumber" placeholder="Apartment Number"/>
             </div>
 
             <div class="form-group">
                 <label for="billingCity">City</label><form:errors path="billingAddress.city" cssStyle="color: red;" />
-                <form:password path="billingAddress.city" class="form-control" id="billingCity" placeholder="City"/>
+                <form:input path="billingAddress.city" class="form-control" id="billingCity" placeholder="City"/>
             </div>
 
             <div class="form-group">
                 <label for="billingState">State</label><form:errors path="billingAddress.state" cssStyle="color: red;" />
-                <form:password path="billingAddress.state" class="form-control" id="billingState" placeholder="State"/>
+                <form:input path="billingAddress.state" class="form-control" id="billingState" placeholder="State"/>
             </div>
 
             <div class="form-group">
                 <label for="billingCountry">Country</label><form:errors path="billingAddress.country" cssStyle="color: red;" />
-                <form:password path="billingAddress.country" class="form-control" id="billingCountry" placeholder="Country"/>
+                <form:input path="billingAddress.country" class="form-control" id="billingCountry" placeholder="Country"/>
             </div>
 
             <div class="form-group">
                 <label for="billingZipCode">Zip Code</label><form:errors path="billingAddress.zipCode" cssStyle="color: red;" />
-                <form:password path="billingAddress.zipCode" class="form-control" id="billingZipCode" placeholder="Zip Code"/>
+                <form:input path="billingAddress.zipCode" class="form-control" id="billingZipCode" placeholder="Zip Code"/>
             </div>
 
 
@@ -77,33 +77,33 @@
 
             <div class="form-group">
                 <label for="shippingStreetName">Street Name</label><form:errors path="shippingAddress.streetName" cssStyle="color: red;" />
-                <form:password path="shippingAddress.streetName" class="form-control" id="shippingStreetName" placeholder="Street Name"/>
+                <form:input path="shippingAddress.streetName" class="form-control" id="shippingStreetName" placeholder="Street Name"/>
             </div>
 
 
             <div class="form-group">
                 <label for="shippingApartmentNumber">Appartment Number</label><form:errors path="shippingAddress.apartmentNumber" cssStyle="color: red;" />
-                <form:password path="shippingAddress.apartmentNumber" class="form-control" id="shippingApartmentNumber" placeholder="Apartment Number"/>
+                <form:input path="shippingAddress.apartmentNumber" class="form-control" id="shippingApartmentNumber" placeholder="Apartment Number"/>
             </div>
 
             <div class="form-group">
                 <label for="shippingCity">City</label><form:errors path="shippingAddress.city" cssStyle="color: red;" />
-                <form:password path="shippingAddress.city" class="form-control" id="shippingCity" placeholder="City"/>
+                <form:input path="shippingAddress.city" class="form-control" id="shippingCity" placeholder="City"/>
             </div>
 
             <div class="form-group">
                 <label for="shippingState">State</label><form:errors path="shippingAddress.state" cssStyle="color: red;" />
-                <form:password path="shippingAddress.state" class="form-control" id="shippingState" placeholder="State"/>
+                <form:input path="shippingAddress.state" class="form-control" id="shippingState" placeholder="State"/>
             </div>
 
             <div class="form-group">
                 <label for="shippingCountry">Country</label><form:errors path="shippingAddress.country" cssStyle="color: red;" />
-                <form:password path="shippingAddress.country" class="form-control" id="shippingCountry" placeholder="Country"/>
+                <form:input path="shippingAddress.country" class="form-control" id="shippingCountry" placeholder="Country"/>
             </div>
 
             <div class="form-group">
                 <label for="shippingZipCode">Zip Code</label><form:errors path="shippingAddress.zipCode" cssStyle="color: red;" />
-                <form:password path="shippingAddress.zipCode" class="form-control" id="shippingZipCode" placeholder="Zip Code"/>
+                <form:input path="shippingAddress.zipCode" class="form-control" id="shippingZipCode" placeholder="Zip Code"/>
             </div>
 
             <button type="submit" class="btn btn-default">Submit</button>
