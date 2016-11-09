@@ -26,6 +26,6 @@ public class CartDAOImpliment implements CartDAO{
 
     @Override
     public void update(Cart cart) {
-
+        int cartId = cart.getCartId();
     }
 }
