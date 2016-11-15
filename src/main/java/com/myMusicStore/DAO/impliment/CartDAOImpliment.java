@@ -2,6 +2,7 @@ package com.myMusicStore.DAO.impliment;
 
 import com.myMusicStore.DAO.CartDAO;
 import com.myMusicStore.Model.Cart;
+import com.myMusicStore.Model.CartItem;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ public class CartDAOImpliment implements CartDAO{
     @Override
     public Cart getCartById(int cartId) {
         Session session = sessionFactory.getCurrentSession();
-        Cart cart = session.get(Cart.class, cartId);
         return session.get(Cart.class, cartId);
     }
 
