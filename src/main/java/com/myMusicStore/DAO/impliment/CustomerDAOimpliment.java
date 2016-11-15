@@ -44,8 +44,7 @@ public class CustomerDAOimpliment implements CustomerDAO{
     @Override
     public Customer getCustomerByUsername(String username) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("FROM Customer WHERE username= ?");
-        query.setString(0, username);
+        Query query = session.createQuery("FROM Customer WHERE username= '"+username+"' ");
         return (Customer) query.uniqueResult();
     }
 

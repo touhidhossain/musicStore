@@ -4,6 +4,7 @@ import com.myMusicStore.Model.Cart;
 import com.myMusicStore.Model.CartItem;
 import com.myMusicStore.Model.Customer;
 import com.myMusicStore.Model.Product;
+import com.myMusicStore.Service.CartItemService;
 import com.myMusicStore.Service.CartService;
 import com.myMusicStore.Service.CustomerService;
 import com.myMusicStore.Service.ProductService;
@@ -31,6 +32,9 @@ public class CartResources {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private CartItemService cartItemService;
+
     @RequestMapping("/{cartId}")
     public @ResponseBody
     Cart getCartById(@PathVariable(value = "cartId") int cartId){
@@ -46,7 +50,43 @@ public class CartResources {
         List<CartItem> cartItems = cart.getCartItems();
 
         for(int i =0; i<cartItems.size(); i++){
+            if(product.getProductId() == cartItems.get(i).getProduct().getProductId()){
+                CartItem cartItem = cartItems.get(i);
+                cartItem.setQuantity(cartItem.getQuantity()+1);
+                cartItem.setTotalPrice(product.getProductPrice()*cartItem.getQuantity());
+                cartItemService.addCartItem(cartItem);
 
+                return;
+            }
         }
+
+        CartItem cartItem = new CartItem();
+        cartItem.setProduct(product);
+        cartItem.setQuantity(1);
+        cartItem.setTotalPrice(product.getProductPrice()*cartItem.getQuantity());
+        cartItem.setCart(cart);
+        cartItemService.addCartItem(cartItem);
     }
+
+    @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void removeItem(@PathVariable(value = "productId") long productId){
+        CartItem cartItem = cartItemService.getCartItemByProductId(productId);
+        cartItemService.removeCartItem(cartItem);
+    }
+
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void clearCart(@PathVariable(value = "cartId") int cartId){
+        Cart cart = cartService.getCartById(cartId);
+        cartItemService.removeAllCartItems(cart);
+    }
+
+    @ExceptionHandler (IllegalArgumentException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Illegal request, please verify your payload.")
+    public void handleClientErrors(Exception e){}
+
+    @ExceptionHandler (Exception.class)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal Server Error.")
+    public void handleServerErrors(Exception e){}
 }
