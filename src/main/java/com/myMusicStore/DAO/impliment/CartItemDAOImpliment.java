@@ -22,34 +22,36 @@ public class CartItemDAOImpliment implements CartItemDAO{
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
+
     public void addCartItem(CartItem cartItem) {
+
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(cartItem);
         session.flush();
     }
 
-    @Override
     public void removeCartItem(CartItem cartItem) {
+
         Session session = sessionFactory.getCurrentSession();
         session.delete(cartItem);
         session.flush();
     }
 
-    @Override
     public void removeAllCartItems(Cart cart) {
+
         List<CartItem> cartItems = cart.getCartItems();
 
-        for (CartItem item : cartItems){
-            removeCartItem(item);
+        for (CartItem cartItem : cartItems) {
+            removeCartItem(cartItem);
         }
     }
 
-    @Override
     public CartItem getCartItemByProductId(long productId) {
+
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from CartItem where productId = "+productId+"");
         session.flush();
+
         return (CartItem) query.uniqueResult();
     }
 

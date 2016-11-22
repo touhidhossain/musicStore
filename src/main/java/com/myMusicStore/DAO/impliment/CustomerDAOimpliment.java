@@ -5,9 +5,9 @@ import com.myMusicStore.Model.Authorities;
 import com.myMusicStore.Model.Cart;
 import com.myMusicStore.Model.Customer;
 import com.myMusicStore.Model.Users;
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +24,6 @@ public class CustomerDAOimpliment implements CustomerDAO{
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
     public List<Customer> getCustomerList() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("FROM Customer");
@@ -33,7 +32,6 @@ public class CustomerDAOimpliment implements CustomerDAO{
         return customerList;
     }
 
-    @Override
     public Customer getCustomerById(long id) {
         Session session = sessionFactory.getCurrentSession();
         Customer customer = (Customer) session.get(Customer.class, id);
@@ -41,7 +39,6 @@ public class CustomerDAOimpliment implements CustomerDAO{
         return customer;
     }
 
-    @Override
     public Customer getCustomerByUsername(String username) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("FROM Customer WHERE username= '"+username+"' ");
@@ -56,7 +53,6 @@ public class CustomerDAOimpliment implements CustomerDAO{
         return customer;
     }*/
 
-    @Override
     public void addCustomer(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -91,7 +87,6 @@ public class CustomerDAOimpliment implements CustomerDAO{
         session.flush();
     }
 
-    @Override
     public void editCustomer(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
 
@@ -126,7 +121,6 @@ public class CustomerDAOimpliment implements CustomerDAO{
         session.flush();
     }
 
-    @Override
     public void deleteCustomer(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(customer);

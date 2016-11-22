@@ -6,12 +6,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by root on 10/3/16.
+ * Created by root on 11/16/16.
  */
 @Entity
 public class CartItem implements Serializable{
 
-    private static final long serialVersionUID = -3332391030148390575L;
+
+    private static final long serialVersionUID = -904360230041854157L;
+
     @Id
     @GeneratedValue
     private int cartItemId;
@@ -27,10 +29,6 @@ public class CartItem implements Serializable{
 
     private int quantity;
     private double totalPrice;
-
-    public CartItem(){}
-
-    public CartItem(Product product){this.product = product;}
 
     public int getCartItemId() {
         return cartItemId;

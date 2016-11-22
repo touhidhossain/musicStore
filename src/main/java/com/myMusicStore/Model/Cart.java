@@ -10,16 +10,16 @@ import java.util.List;
  * Created by root on 10/3/16.
  */
 @Entity
-public class Cart implements Serializable{
+public class Cart implements Serializable {
 
-    private static final long serialVersionUID = -5651661178782774935L;
+
+    private static final long serialVersionUID = 4705768177687620031L;
 
     @Id
     @GeneratedValue
     private int cartId;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
     private List<CartItem> cartItems;
 
     @OneToOne
@@ -61,3 +61,4 @@ public class Cart implements Serializable{
         this.grandTotal = grandTotal;
     }
 }
+

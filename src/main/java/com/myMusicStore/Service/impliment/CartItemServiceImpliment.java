@@ -15,22 +15,19 @@ public class CartItemServiceImpliment implements CartItemService{
     @Autowired
     private CartItemDAO cartItemDAO;
 
-    @Override
+
     public void addCartItem(CartItem cartItem) {
         cartItemDAO.addCartItem(cartItem);
     }
 
-    @Override
     public void removeCartItem(CartItem cartItem) {
         cartItemDAO.removeCartItem(cartItem);
     }
 
-    @Override
     public void removeAllCartItems(Cart cart) {
         cartItemDAO.removeAllCartItems(cart);
     }
 
-    @Override
     public CartItem getCartItemByProductId(long productId) {
         return cartItemDAO.getCartItemByProductId(productId);
     }

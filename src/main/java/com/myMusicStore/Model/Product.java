@@ -13,23 +13,26 @@ import java.util.List;
  * Created by TOUHID on 7/9/2016.
  */
 @Entity
-public class Product implements Serializable{
+public class Product implements Serializable {
 
-    private static final long serialVersionUID = -7196108944678654218L;
+
+    private static final long serialVersionUID = -3532377236419382983L;
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long productId;
 
-    @NotEmpty (message = "Product name must not be null.")
+    @NotEmpty(message = "Product name must not be empty.")
     private String productName;
-    private  String productCategory;
-    private  String productDescription;
+    private String productCategory;
+    private String productDescription;
 
-    @Min(value = 0, message = "Product price must not be less than zero")
+    @Min(value = 0, message = "Product price must not be less than zero.")
     private double productPrice;
     private String productCondition;
-    private  String productStatus;
-    @Min(value = 0, message = "Product unit must not be less than zero")
+    private String productStatus;
+
+    @Min(value = 0, message = "Unit in stock amount must not be less than zero.")
     private int unitInStock;
     private String productManufacture;
 
@@ -40,16 +43,16 @@ public class Product implements Serializable{
     @JsonIgnore
     private List<CartItem> cartItemList;
 
+    public String getProductName() {
+        return productName;
+    }
+
     public long getProductId() {
         return productId;
     }
 
     public void setProductId(long productId) {
         this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
     }
 
     public void setProductName(String productName) {

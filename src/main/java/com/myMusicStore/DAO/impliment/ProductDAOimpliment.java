@@ -4,7 +4,7 @@ import com.myMusicStore.DAO.ProductDAO;
 import com.myMusicStore.Model.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +22,6 @@ public class ProductDAOimpliment implements ProductDAO {
   private SessionFactory sessionFactory;
 
 
-  @Override
   public List<Product> getProductList() {
     Session session = sessionFactory.getCurrentSession();
     Query query = session.createQuery("FROM Product");
@@ -32,7 +31,6 @@ public class ProductDAOimpliment implements ProductDAO {
     return productList;
   }
 
-  @Override
   public Product getProductById(long id) {
     Session session = sessionFactory.getCurrentSession();
     Product product = (Product) session.get(Product.class, id);
@@ -41,21 +39,18 @@ public class ProductDAOimpliment implements ProductDAO {
     return product;
   }
 
-  @Override
   public void addProduct(Product product) {
     Session session = sessionFactory.getCurrentSession();
     session.saveOrUpdate(product);
     session.flush();
   }
 
-  @Override
   public void editProduct(Product product) {
     Session session = sessionFactory.getCurrentSession();
     session.saveOrUpdate(product);
     session.flush();
   }
 
-  @Override
   public void deleteProduct(Product product) {
     Session session = sessionFactory.getCurrentSession();
     session.delete(product);
