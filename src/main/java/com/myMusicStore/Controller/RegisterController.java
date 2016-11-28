@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by root on 10/19/16.
@@ -40,10 +41,25 @@ public class RegisterController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerCudtomerPosr(@Valid @ModelAttribute("customer") Customer customer,
-                                       BindingResult result, HttpServletRequest request){
+                                       BindingResult result, HttpServletRequest request, Model model){
         if(result.hasErrors()){
             return "registerCustomer";
         }
+
+        List<Customer> customerList = customerService.getCustomerList();
+
+        for(int i =0; i<customerList.size(); i++){
+            if(customer.getCustomerEmail().equals(customerList.get(i).getCustomerEmail())){
+                model.addAttribute("emailMsg", "Email already exist.");
+                return "registerCustomer";
+            }
+
+            if(customer.getUsername().equals(customerList.get(i).getUsername())){
+                model.addAttribute("usernameMsg", "Username already exist.");
+                return "registerCustomer";
+            }
+        }
+
         customer.setEnable(true);
         customerService.addCustomer(customer);
 
