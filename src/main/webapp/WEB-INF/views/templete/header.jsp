@@ -55,10 +55,10 @@
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
                             <li><a href="<c:url value="/logout"/>">Logout</a></li>
-                            <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                            <c:if test="${pageContext.request.isUserInRole('ROLE_USER')}">
                                 <li><a href="<c:url value="/customer/cart" />">Cart</a></li>
                             </c:if>
-                            <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                            <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
                                 <li><a href="<c:url value="/admin"/>">Admin</a></li>
                             </c:if>
                         </c:if>
